@@ -11,7 +11,7 @@ function App() {
     spring: {
       title: "Spring",
       description:
-        "Browser our catalog of Spring images! Amazing landscapes recovering from winter's frost!",
+        "Browser our catalog of Spring images! Amazing landscapes blossoming life!",
       src: "https://lh3.googleusercontent.com/pw/AL9nZEX9jsp60DxonQFt6hBcd4szSEdgv6tUdgw8n5NObQtqtLEo8NpIVL-soCGKTz7kApaxpcohtZHGUR0Y9X57FxK1ec83fbOz6dVnsCb5o3ipD_F6T7-dL8yD0SmV0x4F0YcrydahEqUOCaqfNEUwF4mNcg=w3730-h2100-no?authuser=0",
     },
     summer: {

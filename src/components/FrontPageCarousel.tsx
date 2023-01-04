@@ -18,7 +18,26 @@ const CallToActionButton = styled(Button)(({ theme }) => ({
     color: theme.palette.primary.main,
     borderColor: theme.palette.primary.contrastText,
   },
+  [theme.breakpoints.down("sm")]: {
+    marginBottom: theme.spacing(1),
+  },
 }));
+
+function CarouselImage({ carouselItem }: { carouselItem: any }) {
+  return (
+    <CardMedia
+      sx={{
+        display: "block",
+        height: "100%",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
+      }}
+      component="div"
+      image={carouselItem.src}
+    />
+  );
+}
 
 const carouselItems = [
   {
@@ -34,52 +53,87 @@ export default function FrontPageCarousel() {
     <Carousel autoPlay={false}>
       {carouselItems.map((carouselItem) => {
         return (
-          <Grid container>
-            <Grid item xs={7} sm={8} md={9}>
-              <Box height="400px">
-                <CardMedia
-                  style={{
-                    display: "block",
-                    height: "100%",
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center center",
-                  }}
-                  component="div"
-                  image={carouselItem.src}
-                />
+          <>
+            <Box display={{ xs: "none", sm: "block" }}>
+              <Grid container>
+                <Grid item xs={7} sm={8} md={9}>
+                  <Box height="400px">
+                    <CardMedia
+                      style={{
+                        display: "block",
+                        height: "100%",
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center center",
+                      }}
+                      component="div"
+                      image={carouselItem.src}
+                    />
+                  </Box>
+                </Grid>
+                <Grid
+                  item
+                  xs={5}
+                  sm={4}
+                  md={3}
+                  bgcolor={(theme) => theme.palette.primary.main}
+                >
+                  <Box
+                    height="100%"
+                    sx={{
+                      padding: 3,
+                      boxSizing: "border-box",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <CarouselImage carouselItem={carouselItem}></CarouselImage>
+                    <Box sx={{ textAlign: "middle" }}>
+                      <Typography
+                        fontSize="1.2rem"
+                        mb={2}
+                        color={(theme) => theme.palette.primary.contrastText}
+                        textAlign="center"
+                      >
+                        The best seasonal image collections!
+                      </Typography>
+                      <Box textAlign="center">
+                        <CallToActionButton variant="outlined">
+                          View now
+                        </CallToActionButton>
+                      </Box>
+                    </Box>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Box>
+            <Box display={{ xs: "block", sm: "none" }}>
+              <Box height="220px">
+                <CarouselImage carouselItem={carouselItem} />
               </Box>
-            </Grid>
-            <Grid
-              item
-              xs={5}
-              sm={4}
-              md={3}
-              bgcolor={(theme) => theme.palette.primary.main}
-            >
               <Box
-                height="100%"
-                sx={{
-                  padding: 3,
-                  display: "flex",
-                  alignItems: "center",
-                }}
+                sx={(theme) => ({
+                  backgroundColor: theme.palette.primary.main,
+                })}
               >
-                <Box>
+                <Box padding={1.5}>
                   <Typography
                     fontSize="1.2rem"
-                    mb={2}
+                    mb={1.5}
                     color={(theme) => theme.palette.primary.contrastText}
+                    textAlign="center"
                   >
                     The best seasonal image collections!
                   </Typography>
-                  <CallToActionButton variant="outlined">
-                    View now
-                  </CallToActionButton>
+                  <Box textAlign="center">
+                    <CallToActionButton variant="outlined">
+                      View now
+                    </CallToActionButton>
+                  </Box>
                 </Box>
               </Box>
-            </Grid>
-          </Grid>
+            </Box>
+          </>
         );
       })}
     </Carousel>
