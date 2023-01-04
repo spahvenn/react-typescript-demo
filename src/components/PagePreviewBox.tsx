@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 interface Props {
   pagePreviewInfo: {
@@ -11,15 +11,15 @@ interface Props {
 export function PagePreviewBox({ pagePreviewInfo }: Props) {
   const { src, title, description } = pagePreviewInfo;
   return (
-    <div>
+    <Box mb={{ md: 2, lg: 0 }}>
       <img style={{ width: "100%" }} src={src} />
-      <Typography variant="h5" sx={{ marginTop: 0.5, marginBottom: 0.5 }}>
+      <Typography variant="h5" mt={0.5} mb={0.5}>
         {title}
       </Typography>
-      <Typography sx={{ mb: 1.5 }}>{description}</Typography>
-      <Button variant="contained" sx={{ width: "100%" }}>
+      <Typography mb={1.5}>{description}</Typography>
+      <Button variant="contained" fullWidth>
         Browse the collection
       </Button>
-    </div>
+    </Box>
   );
 }
