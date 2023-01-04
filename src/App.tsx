@@ -4,6 +4,7 @@ import { Container } from "@mui/system";
 import Carousel from "react-material-ui-carousel";
 import { Grid } from "@mui/material";
 import { PagePreviewBox } from "./components/PagePreviewBox";
+import NavigationBar from "./components/NavigationBar";
 
 function App() {
   // TODO: layoutti, jossa carousel ja 4 kuvaa (kevät, kesä, syksy, talvi)
@@ -39,7 +40,7 @@ function App() {
 
   const carouselItems = [
     {
-      src: "https://lh3.googleusercontent.com/pw/AL9nZEU3vKhqmZNW_CVLzOpsWTuAJmy0ms6Q7gyStUAC__rmXayWxkc8eSRDuIXYyOxNf00vs8R5ddhfOs9EghC1ORmxYtBj5Uu4PiwM9qd35xdboG9TVMbWmg_kPlJKH86C_2-r7bHkyETJTy1LQ1GhGAB2WQ=w3730-h2100-no?authuser=0",
+      src: "https://lh3.googleusercontent.com/pw/AL9nZEWzrOmbZcF_XENpdU4je05T8X77DE-oyFAjLlO8-v464bFptOFfyNlXtV6Pm946TeVv-wwFvMowcQsiVEACHb0QsQ6xHvsQ-Y8wqTBD4iMe7AtuwThSzV35VAOex2f6v7864akTXi5SDJANKVgRIRGHmQ=w3102-h1242-no?authuser=0",
     },
     {
       src: "https://lh3.googleusercontent.com/pw/AL9nZEXRi7cjNArOloX0YgE8iQn0_d-AuuFVPkNuYplBzuN_7dQhHTVIDSvZ540dU5VfGbMMViXaxkKlbVCkNE0Dt9fiDGKmqXzdrjnrOtU8sGxJFWT9edNY0y2fm0M1PflzzOfy2y2xEycv-SWsaQMW75IHaw=w3730-h2100-no?authuser=0",
@@ -47,34 +48,37 @@ function App() {
   ];
 
   return (
-    <Container maxWidth="lg">
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Carousel autoPlay={false}>
-            {carouselItems.map((carouselItem) => {
-              return (
-                <img
-                  src={carouselItem.src}
-                  style={{ width: "100%", height: "50%" }}
-                />
-              );
-            })}
-          </Carousel>
+    <>
+      <NavigationBar />
+      <Container maxWidth="lg" sx={{ pb: "64px", pt: 3 }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Carousel autoPlay={false}>
+              {carouselItems.map((carouselItem) => {
+                return (
+                  <img
+                    src={carouselItem.src}
+                    style={{ width: "100%", height: "50%" }}
+                  />
+                );
+              })}
+            </Carousel>
+          </Grid>
+          <Grid item xs={12} sm={6} lg={3}>
+            <PagePreviewBox pagePreviewInfo={pagePreviews.spring} />
+          </Grid>
+          <Grid item xs={12} sm={6} lg={3}>
+            <PagePreviewBox pagePreviewInfo={pagePreviews.summer} />
+          </Grid>
+          <Grid item xs={12} sm={6} lg={3}>
+            <PagePreviewBox pagePreviewInfo={pagePreviews.autumn} />
+          </Grid>
+          <Grid item xs={12} sm={6} lg={3}>
+            <PagePreviewBox pagePreviewInfo={pagePreviews.winter} />
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={6} lg={3}>
-          <PagePreviewBox pagePreviewInfo={pagePreviews.spring} />
-        </Grid>
-        <Grid item xs={12} sm={6} lg={3}>
-          <PagePreviewBox pagePreviewInfo={pagePreviews.summer} />
-        </Grid>
-        <Grid item xs={12} sm={6} lg={3}>
-          <PagePreviewBox pagePreviewInfo={pagePreviews.autumn} />
-        </Grid>
-        <Grid item xs={12} sm={6} lg={3}>
-          <PagePreviewBox pagePreviewInfo={pagePreviews.winter} />
-        </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </>
   );
 }
 
