@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Container } from "@mui/system";
-import { Grid } from "@mui/material";
+import { AppBar, Box, Grid, Typography } from "@mui/material";
 import { PagePreviewBox } from "./components/PagePreviewBox";
 import NavigationBar from "./components/NavigationBar";
 import FrontPageCarousel from "./components/FrontPageCarousel";
@@ -35,9 +35,22 @@ function App() {
   };
 
   return (
-    <>
+    <Box
+      sx={{
+        display: "flex",
+        minHeight: "100vh",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+      }}
+    >
       <NavigationBar />
-      <Container maxWidth="lg" sx={{ pb: "64px", pt: 3 }}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          pb: "64px",
+          pt: 3,
+        }}
+      >
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <FrontPageCarousel />
@@ -56,7 +69,29 @@ function App() {
           </Grid>
         </Grid>
       </Container>
-    </>
+      <footer style={{ marginTop: "auto" }}>
+        <AppBar position="sticky">
+          <Container
+            maxWidth="lg"
+            sx={{
+              height: "40px",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+              }}
+            >
+              <Typography>Made by: Sami Ahvenniemi</Typography>
+            </Box>
+          </Container>
+        </AppBar>
+      </footer>
+    </Box>
   );
 }
 
