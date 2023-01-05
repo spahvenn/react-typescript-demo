@@ -2,11 +2,11 @@ import { Grid } from "@mui/material";
 import { PagePreviewBox } from "../components/PagePreviewBox";
 import FrontPageCarousel from "../components/FrontPageCarousel";
 import { pagePreviews } from "../utils/utils";
-import Layout from "../components/Layout";
+import { BasicLayout } from "../components/Layout";
 
 function HomePage() {
   return (
-    <Layout>
+    <BasicLayout>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <FrontPageCarousel />
@@ -24,7 +24,7 @@ function HomePage() {
           <PagePreviewBox pagePreviewInfo={pagePreviews.winter} />
         </Grid>
       </Grid>
-    </Layout>
+    </BasicLayout>
   );
 }
 

@@ -2,7 +2,7 @@ import { Box, Container } from "@mui/material";
 import Footer from "./Footer";
 import NavigationBar from "./NavigationBar";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Box
       sx={{
@@ -13,6 +13,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       }}
     >
       <NavigationBar />
+      {children}
+      <Footer />
+    </Box>
+  );
+}
+
+export function BasicLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <Layout>
       <Container
         maxWidth="lg"
         sx={{
@@ -20,9 +29,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           pt: 3,
         }}
       >
+        {" "}
         {children}
       </Container>
-      <Footer />
-    </Box>
+    </Layout>
   );
 }

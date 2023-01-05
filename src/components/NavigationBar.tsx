@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 const StyledNavLink = styled(NavLink)(({ theme }) => ({
   color: theme.palette.primary.contrastText,
   textDecoration: "none",
-  padding: theme.spacing(2),
+  padding: `${theme.spacing(2)} ${theme.spacing(2)} ${theme.spacing(2)} 0`,
 }));
 
 function NavigationItem({
