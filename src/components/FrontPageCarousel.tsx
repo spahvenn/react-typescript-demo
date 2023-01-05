@@ -21,6 +21,7 @@ const CallToActionButton = styled(Button)(({ theme }) => ({
   },
   [theme.breakpoints.down("sm")]: {
     marginBottom: theme.spacing(1),
+    padding: "0.25rem 0.65rem",
   },
 }));
 
@@ -111,7 +112,7 @@ function DesktopCarouselContainer({ carouselItems }: { carouselItems: any[] }) {
 function MobileCarouselContainer({ carouselItems }: { carouselItems: any }) {
   return (
     <Box display={{ xs: "block", sm: "none" }}>
-      <Carousel indicators={false}>
+      <Carousel indicators={false} autoPlay={false}>
         {carouselItems.map((carouselItem: any) => {
           return (
             <Box height="220px">
@@ -125,10 +126,10 @@ function MobileCarouselContainer({ carouselItems }: { carouselItems: any }) {
           backgroundColor: theme.palette.primary.main,
         })}
       >
-        <Box padding={1.5}>
+        <Box padding={1}>
           <Typography
             fontSize="1.2rem"
-            mb={1.5}
+            mb={1}
             color={(theme) => theme.palette.primary.contrastText}
             textAlign="center"
           >
