@@ -1,10 +1,9 @@
-import React from "react";
-import "./App.css";
 import { Container } from "@mui/system";
-import { AppBar, Box, Grid, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { PagePreviewBox } from "./components/PagePreviewBox";
 import NavigationBar from "./components/NavigationBar";
 import FrontPageCarousel from "./components/FrontPageCarousel";
+import Footer from "./components/Footer";
 
 function App() {
   const pagePreviews = {
@@ -69,28 +68,7 @@ function App() {
           </Grid>
         </Grid>
       </Container>
-      <footer style={{ marginTop: "auto" }}>
-        <AppBar position="sticky">
-          <Container
-            maxWidth="lg"
-            sx={{
-              height: "40px",
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "100%",
-              }}
-            >
-              <Typography>Made by: Sami Ahvenniemi</Typography>
-            </Box>
-          </Container>
-        </AppBar>
-      </footer>
+      <Footer />
     </Box>
   );
 }
