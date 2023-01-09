@@ -1,10 +1,10 @@
 import { Grid } from "@mui/material";
-import { PagePreviewBox } from "../components/PagePreviewBox";
-import FrontPageCarousel from "../components/FrontPageCarousel";
-import { pagePreviews } from "../utils/utils";
-import { BasicLayout } from "../components/Layout";
+import { PagePreviewBox } from "./PagePreviewBox";
+import FrontPageCarousel from "./FrontPageCarousel/FrontPageCarousel";
+import { pagePreviews } from "../../utils/utils";
+import { BasicLayout } from "../../components/Layout";
 
-function HomePage() {
+function FrontPage() {
   return (
     <BasicLayout>
       <Grid container spacing={3}>
@@ -28,4 +28,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default FrontPage;
