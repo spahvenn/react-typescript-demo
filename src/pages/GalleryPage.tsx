@@ -7,9 +7,10 @@ import {
   RadioGroup,
 } from "@mui/material";
 import { Container } from "@mui/system";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Layout } from "../components/Layout";
 import { pictureBank } from "../utils/utils";
+import { useSearchParams } from "react-router-dom";
 
 function RowRadioButtonsGroup({
   selectedSeason,
@@ -18,8 +19,18 @@ function RowRadioButtonsGroup({
   selectedSeason: string;
   setSelectedSeason: (season: string) => void;
 }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const urlSeason = searchParams.get("season");
+    if (urlSeason && urlSeason !== null) {
+      setSelectedSeason(urlSeason);
+    }
+  }, []);
+
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setSelectedSeason(event.target.value);
+    setSearchParams({ season: event.target.value });
   }
 
   return (
@@ -56,11 +67,9 @@ export default function GalleryPage() {
         />
       </Container>
       <Grid container spacing={0.5}>
-        <Grid item xs={12}></Grid>
-
         {pictureBank[selectedSeason].map((image) => {
           return (
-            <Grid item sm={6} md={4}>
+            <Grid key={image.src} item sm={6} md={4}>
               <img style={{ width: "100%" }} src={image.src}></img>
             </Grid>
           );

@@ -4,29 +4,36 @@ export const pagePreviews = {
     description:
       "Browser our catalog of Spring images! Amazing landscapes blossoming life!",
     src: "https://lh3.googleusercontent.com/pw/AL9nZEX9jsp60DxonQFt6hBcd4szSEdgv6tUdgw8n5NObQtqtLEo8NpIVL-soCGKTz7kApaxpcohtZHGUR0Y9X57FxK1ec83fbOz6dVnsCb5o3ipD_F6T7-dL8yD0SmV0x4F0YcrydahEqUOCaqfNEUwF4mNcg=w3730-h2100-no?authuser=0",
+    btnUrl: "/gallery?season=spring",
   },
   summer: {
     title: "Summer",
     description:
       "Browser our catalog of Summer images! Pick you favourite sunny landscapes!",
     src: "https://lh3.googleusercontent.com/pw/AL9nZEXDKIL0j35rRGj_oDNDnL17tYmm-dtSeNlKp1rHFQUzDd9Qz3CxdwpsWPRks-4jy3KS5mS-dmnbcxoYwv63BSc41z57irTkr_irGzp-VfxNxkRV2N2lvphTd3Le0GYqe5VZOnM4CV7l2cixqZawFOXqfg=w3730-h2100-no?authuser=0",
+    btnUrl: "/gallery?season=summer",
   },
   autumn: {
     title: "Autumn",
     description:
       "Browser our catalog of Autumn images! Pick you vivid Autumn landscapes!",
     src: "https://lh3.googleusercontent.com/pw/AL9nZEXFOYb3rq2r5yoJiiC4rJ-9fOzRj7g_PV5anWMbYWQiFmQuaXADvntQGNR3bUNIuv4Bhp_6MRKDkPxwo92DhY-c48PW-9kSE4_SZd858-NrFI6ui7Vi8KpInq2B1EiYM2uBKA8hKn9TRPPZps01qJQsqg=w3730-h2100-no?authuser=0",
+    btnUrl: "/gallery?season=autumn",
   },
   winter: {
     title: "Winter",
     description:
       "Browser our catalog of Winter images! Frosty landscapes for all uses!",
     src: "https://lh3.googleusercontent.com/pw/AL9nZEWnEw6nznkffDQJbQPu9nEUa1fEUk-jAvZHgQkFwTwzrO6oiVDPCWm9HnTOl1h0kIO0_1sZRp4q_5hA18wb7UEAUqgvk2NA-u2AddDvPDYGDTNl-ulMXvBmIXNqm6jde3DKcsAtDJuVSYnR-vdjN-rt4A=w3730-h2100-no?authuser=0",
+    btnUrl: "/gallery?season=winter",
   },
 };
 
 const pictureBankSeasons = {
   spring: [
+    {
+      src: "https://lh3.googleusercontent.com/pw/AL9nZEX9jsp60DxonQFt6hBcd4szSEdgv6tUdgw8n5NObQtqtLEo8NpIVL-soCGKTz7kApaxpcohtZHGUR0Y9X57FxK1ec83fbOz6dVnsCb5o3ipD_F6T7-dL8yD0SmV0x4F0YcrydahEqUOCaqfNEUwF4mNcg=w2552-h1436-no?authuser=0",
+    },
     {
       src: "https://lh3.googleusercontent.com/pw/AL9nZEXRi7cjNArOloX0YgE8iQn0_d-AuuFVPkNuYplBzuN_7dQhHTVIDSvZ540dU5VfGbMMViXaxkKlbVCkNE0Dt9fiDGKmqXzdrjnrOtU8sGxJFWT9edNY0y2fm0M1PflzzOfy2y2xEycv-SWsaQMW75IHaw=w2552-h1436-no?authuser=0",
     },
@@ -45,11 +52,11 @@ const pictureBankSeasons = {
     {
       src: "https://lh3.googleusercontent.com/pw/AL9nZEWX3PPxhwTNpx7S0RInCGkpspDG-NZPzNv8gdSshdNvBi_gImpGlXvO7nEM9aaKJa6JebfYOPacDmbbt2JguXHhhPl4KK4ZS-QzwMCG4QbnIYtm5IcoOcfWMzyanPDJk9eewCbGkHqOG9q4KbbfudzdDA=w2552-h1436-no?authuser=0",
     },
-    {
-      src: "https://lh3.googleusercontent.com/pw/AL9nZEX9jsp60DxonQFt6hBcd4szSEdgv6tUdgw8n5NObQtqtLEo8NpIVL-soCGKTz7kApaxpcohtZHGUR0Y9X57FxK1ec83fbOz6dVnsCb5o3ipD_F6T7-dL8yD0SmV0x4F0YcrydahEqUOCaqfNEUwF4mNcg=w2552-h1436-no?authuser=0",
-    },
   ],
   summer: [
+    {
+      src: "https://lh3.googleusercontent.com/pw/AL9nZEXDKIL0j35rRGj_oDNDnL17tYmm-dtSeNlKp1rHFQUzDd9Qz3CxdwpsWPRks-4jy3KS5mS-dmnbcxoYwv63BSc41z57irTkr_irGzp-VfxNxkRV2N2lvphTd3Le0GYqe5VZOnM4CV7l2cixqZawFOXqfg=w3242-h1824-no?authuser=0",
+    },
     {
       src: "https://lh3.googleusercontent.com/pw/AL9nZEUrXTMBeuwIarTIIrPKf8y6M9u3rrmIRZY5pi6LBqpbrf3n74uNaYuX-L2LxX-2rrF7NkyVH9x5ySqies--56ZV1vvi1gXPeBZbhbIXLAjc_E0Xju9JQhEuJqH6znwNUkWi3tt_p-BeC9ECIAoXSsF2AA=w3242-h1824-no?authuser=0",
     },
@@ -83,11 +90,11 @@ const pictureBankSeasons = {
     {
       src: "https://lh3.googleusercontent.com/pw/AL9nZEV3eMFPVn6KSaErG0SCM6KioA7nmUt5mDGurXZQCwPFKDuyyVwBkeWBl8T15a2oU9ToG1qT23QA10xi8eom2Y3UOk7Vm4_-sXk2cIN2gsBk4YxRIdYNSuWKY8-Xp3M3kz_FYsy_CuH2OmmZ_ZTSudGepg=w3242-h1824-no?authuser=0",
     },
-    {
-      src: "https://lh3.googleusercontent.com/pw/AL9nZEXDKIL0j35rRGj_oDNDnL17tYmm-dtSeNlKp1rHFQUzDd9Qz3CxdwpsWPRks-4jy3KS5mS-dmnbcxoYwv63BSc41z57irTkr_irGzp-VfxNxkRV2N2lvphTd3Le0GYqe5VZOnM4CV7l2cixqZawFOXqfg=w3242-h1824-no?authuser=0",
-    },
   ],
   autumn: [
+    {
+      src: "https://lh3.googleusercontent.com/pw/AL9nZEXFOYb3rq2r5yoJiiC4rJ-9fOzRj7g_PV5anWMbYWQiFmQuaXADvntQGNR3bUNIuv4Bhp_6MRKDkPxwo92DhY-c48PW-9kSE4_SZd858-NrFI6ui7Vi8KpInq2B1EiYM2uBKA8hKn9TRPPZps01qJQsqg=w3242-h1824-no?authuser=0",
+    },
     {
       src: "https://lh3.googleusercontent.com/pw/AL9nZEU8zs1oFOLa4b28fepVA3fIobegwn6utS7YiQstzS7_vxgsyroPST8XDEzNvQsNIEi348UPDSwk2D8vQ_4GV4C6WkSZgiQTKM0XkvPkQ0x8pX4x0E5QzyvNO6aMFqLk7ZPMXgK3XQlzcRUX1grJgZju1w=w3242-h1824-no?authuser=0",
     },
@@ -96,9 +103,6 @@ const pictureBankSeasons = {
     },
     {
       src: "https://lh3.googleusercontent.com/pw/AL9nZEU-R0H9u5DZOjI2_Pt1Py1wT33_EDXEzxf5Pj9pzOOALR_FJs0zMguSe_NfcW_Irf0mz2DtOp3T_BgqA80FMt3m2FQ0Ctt_DLNtrLO8NV9xdtQIEaiZE43vAiW-KvmbpTjfQvA485UntqAyAcmatBFogw=w3242-h1824-no?authuser=0",
-    },
-    {
-      src: "https://lh3.googleusercontent.com/pw/AL9nZEXFOYb3rq2r5yoJiiC4rJ-9fOzRj7g_PV5anWMbYWQiFmQuaXADvntQGNR3bUNIuv4Bhp_6MRKDkPxwo92DhY-c48PW-9kSE4_SZd858-NrFI6ui7Vi8KpInq2B1EiYM2uBKA8hKn9TRPPZps01qJQsqg=w3242-h1824-no?authuser=0",
     },
     {
       src: "https://lh3.googleusercontent.com/pw/AL9nZEWpEMPBmPRGvAs-8ywIaUf94cdZ_4njqLsl0gmq2R32nRjWzQ-BDAe2nTdVbDWF2ym_lv2Yq4KzPARVRbulMn5wXMjBKlKDR1txwFA-conURMX4uled-Jt4bzM5xqT0EI7KfUyljopes6H5CgJhGg2z7A=w3242-h1824-no?authuser=0",
@@ -127,6 +131,9 @@ const pictureBankSeasons = {
   ],
   winter: [
     {
+      src: "https://lh3.googleusercontent.com/pw/AL9nZEWnEw6nznkffDQJbQPu9nEUa1fEUk-jAvZHgQkFwTwzrO6oiVDPCWm9HnTOl1h0kIO0_1sZRp4q_5hA18wb7UEAUqgvk2NA-u2AddDvPDYGDTNl-ulMXvBmIXNqm6jde3DKcsAtDJuVSYnR-vdjN-rt4A=w3242-h1824-no?authuser=0",
+    },
+    {
       src: "https://lh3.googleusercontent.com/pw/AL9nZEUsaZjTmK4T7OJYmnkzbASGuNSz6bf2UC64ccXuGLKFFkOiNvxjAzU7BbBFkAD_3fxA-gQNyHcjxe264LKhFgglM0Tyl8EKkugi6y-F73-9r9suJjRPYORAEQk7qlnecvl8ARLCVrQHMbxe5ycvoolvjQ=w3242-h1824-no?authuser=0",
     },
     {
@@ -140,9 +147,6 @@ const pictureBankSeasons = {
     },
     {
       src: "https://lh3.googleusercontent.com/pw/AL9nZEURAzpm5_2qBsMbblfhjrDtQuMPdW96eoQ0B8wkXVAueDOilRujCmSDwCClAlEiI5iqd6cnp1yQHX7habWkIl9kWl5OY4g9pFnOGsrJ2e_2-vk9BtpneILNv0Rzkld6H0T-n6m3lPZKe3xgcZjRf0JQxA=w3242-h1824-no?authuser=0",
-    },
-    {
-      src: "https://lh3.googleusercontent.com/pw/AL9nZEWnEw6nznkffDQJbQPu9nEUa1fEUk-jAvZHgQkFwTwzrO6oiVDPCWm9HnTOl1h0kIO0_1sZRp4q_5hA18wb7UEAUqgvk2NA-u2AddDvPDYGDTNl-ulMXvBmIXNqm6jde3DKcsAtDJuVSYnR-vdjN-rt4A=w3242-h1824-no?authuser=0",
     },
     {
       src: "https://lh3.googleusercontent.com/pw/AL9nZEUWh-1hCxsNJKGd5vCEPB4-uG9QcXT9tQeJEw82WgTo5-Cg7XrFhacU8Z7pVClFO_rmDD8AuKVA2y83n7Dxf-Pmv9rgi_EJoznNQVSic1x_zMeFU2ze3DzfWDnqi5GJQF4FDm56RCM-BdSa2tMpvKxh1g=w3242-h1824-no?authuser=0",

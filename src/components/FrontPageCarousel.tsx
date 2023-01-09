@@ -8,8 +8,13 @@ import {
 } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import { pagePreviews } from "../utils/utils";
+import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
-const CallToActionButton = styled(Button)(({ theme }) => ({
+const CallToActionButton = styled(Button)<{
+  component: React.ElementType;
+  to: string;
+}>(({ theme }) => ({
   padding: "0.5rem 1.25rem",
   fontSize: "1rem",
   color: theme.palette.primary.contrastText,
@@ -43,28 +48,42 @@ function CarouselImage({ carouselItem }: { carouselItem: any }) {
 
 const carouselItems = [
   {
+    season: "winter",
     src: pagePreviews.winter.src,
   },
   {
+    season: "spring",
     src: pagePreviews.spring.src,
   },
   {
+    season: "summer",
     src: pagePreviews.summer.src,
   },
   {
+    season: "autumn",
     src: pagePreviews.autumn.src,
   },
 ];
 
-function DesktopCarouselContainer({ carouselItems }: { carouselItems: any[] }) {
+interface CarouselContainerProps {
+  carouselItems: any[];
+  onChange: (now?: number, previous?: number) => void;
+  currentImageIndex: number;
+}
+
+function DesktopCarouselContainer({
+  carouselItems,
+  onChange,
+  currentImageIndex,
+}: CarouselContainerProps) {
   return (
     <Box display={{ xs: "none", sm: "block" }}>
       <Grid container>
         <Grid item xs={7} sm={8} md={9}>
-          <Carousel indicators={false}>
+          <Carousel indicators={false} onChange={onChange}>
             {carouselItems.map((carouselItem) => {
               return (
-                <Box height="400px">
+                <Box key={carouselItem.season} height="400px">
                   <CarouselImage carouselItem={carouselItem}></CarouselImage>
                 </Box>
               );
@@ -97,7 +116,11 @@ function DesktopCarouselContainer({ carouselItems }: { carouselItems: any[] }) {
                 The best seasonal image collections!
               </Typography>
               <Box textAlign="center">
-                <CallToActionButton variant="outlined">
+                <CallToActionButton
+                  variant="outlined"
+                  component={Link}
+                  to={`/gallery?season=${carouselItems[currentImageIndex]?.season}`}
+                >
                   View now
                 </CallToActionButton>
               </Box>
@@ -109,13 +132,17 @@ function DesktopCarouselContainer({ carouselItems }: { carouselItems: any[] }) {
   );
 }
 
-function MobileCarouselContainer({ carouselItems }: { carouselItems: any }) {
+function MobileCarouselContainer({
+  carouselItems,
+  onChange,
+  currentImageIndex,
+}: CarouselContainerProps) {
   return (
     <Box display={{ xs: "block", sm: "none" }}>
-      <Carousel indicators={false} autoPlay={false}>
+      <Carousel indicators={false} onChange={onChange}>
         {carouselItems.map((carouselItem: any) => {
           return (
-            <Box height="220px">
+            <Box key={carouselItem.season} height="220px">
               <CarouselImage carouselItem={carouselItem} />
             </Box>
           );
@@ -136,7 +163,13 @@ function MobileCarouselContainer({ carouselItems }: { carouselItems: any }) {
             The best seasonal image collections!
           </Typography>
           <Box textAlign="center">
-            <CallToActionButton variant="outlined">View now</CallToActionButton>
+            <CallToActionButton
+              component={Link}
+              to={`/gallery?season=${carouselItems[currentImageIndex]?.season}`}
+              variant="outlined"
+            >
+              View now
+            </CallToActionButton>
           </Box>
         </Box>
       </Box>
@@ -145,10 +178,26 @@ function MobileCarouselContainer({ carouselItems }: { carouselItems: any }) {
 }
 
 export default function FrontPageCarousel() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  function onChange(now?: number, previous?: number) {
+    if (now) {
+      setCurrentImageIndex(now);
+    }
+  }
+
   return (
     <>
-      <MobileCarouselContainer carouselItems={carouselItems} />
-      <DesktopCarouselContainer carouselItems={carouselItems} />
+      <MobileCarouselContainer
+        carouselItems={carouselItems}
+        onChange={onChange}
+        currentImageIndex={currentImageIndex}
+      />
+      <DesktopCarouselContainer
+        carouselItems={carouselItems}
+        onChange={onChange}
+        currentImageIndex={currentImageIndex}
+      />
     </>
   );
 }
