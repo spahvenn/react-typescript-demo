@@ -1,9 +1,9 @@
 import { Grid } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState } from "react";
-import { Layout } from "../../components/Layout";
-import { pictureBank } from "../../utils/utils";
-import SeasonSelector from "./SeasonSelector";
+import { Layout } from "../components/Layout/Layout";
+import { pictureBank } from "../utils/utils";
+import SeasonSelector from "../components/GalleryPage/SeasonSelector";
 
 export default function GalleryPage() {
   const [selectedSeason, setSelectedSeason] = useState("all");

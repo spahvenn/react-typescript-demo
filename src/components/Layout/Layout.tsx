@@ -1,6 +1,6 @@
 import { Box, Container } from "@mui/material";
 import Footer from "./Footer";
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "./NavigationBar/NavigationBar";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -29,7 +29,6 @@ export function BasicLayout({ children }: { children: React.ReactNode }) {
           pt: 3,
         }}
       >
-        {" "}
         {children}
       </Container>
     </Layout>

@@ -1,8 +1,8 @@
 import { Grid } from "@mui/material";
-import { PagePreviewBox } from "./PagePreviewBox";
-import FrontPageCarousel from "./FrontPageCarousel/FrontPageCarousel";
-import { pagePreviews } from "../../utils/utils";
-import { BasicLayout } from "../../components/Layout";
+import FrontPageCarousel from "../components/FrontPage/FrontPageCarousel/FrontPageCarousel";
+import { pagePreviews } from "../utils/utils";
+import { BasicLayout } from "../components/Layout/Layout";
+import { PagePreviewBox } from "../components/FrontPage/PagePreviewBox";
 
 function FrontPage() {
   return (

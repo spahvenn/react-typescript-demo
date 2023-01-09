@@ -1,38 +1,8 @@
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Container, Grid, styled } from "@mui/material";
-import { NavLink } from "react-router-dom";
-
-const StyledNavLink = styled(NavLink)(({ theme }) => ({
-  color: theme.palette.primary.contrastText,
-  textDecoration: "none",
-  padding: `${theme.spacing(2)} ${theme.spacing(2)} ${theme.spacing(2)} 0`,
-}));
-
-function NavigationItem({
-  children,
-  to,
-}: {
-  children: React.ReactNode;
-  to: string;
-}) {
-  return (
-    <StyledNavLink to={to}>
-      {({ isActive }) => (
-        <Typography
-          variant="h6"
-          component="div"
-          style={isActive ? { fontWeight: "bold" } : { fontWeight: "normal" }}
-        >
-          {children}
-        </Typography>
-      )}
-    </StyledNavLink>
-  );
-}
+import { Container, Grid } from "@mui/material";
+import { NavigationItem } from "./NavigationItem";
 
 export default function NavigationBar() {
   return (
