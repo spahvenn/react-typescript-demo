@@ -62,7 +62,7 @@ export default function GalleryPage() {
           // @ts-ignore
           pictureBank[selectedSeason].map((image) => {
             return (
-              <Grid item xs={4}>
+              <Grid item xs={6} sm={6} md={4} lg={3}>
                 <img style={{ width: "100%" }} src={image.src}></img>
               </Grid>
             );
