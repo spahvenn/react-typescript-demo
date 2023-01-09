@@ -1,18 +1,14 @@
 import {
   FormControl,
-  FormControlLabel,
   FormLabel,
-  Grid,
-  Radio,
   RadioGroup,
+  FormControlLabel,
+  Radio,
 } from "@mui/material";
-import { Container } from "@mui/system";
-import { useEffect, useState } from "react";
-import { Layout } from "../components/Layout";
-import { pictureBank } from "../utils/utils";
+import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
-function RowRadioButtonsGroup({
+export default function SeasonSelector({
   selectedSeason,
   setSelectedSeason,
 }: {
@@ -52,29 +48,5 @@ function RowRadioButtonsGroup({
         <FormControlLabel value="winter" control={<Radio />} label="Winter" />
       </RadioGroup>
     </FormControl>
-  );
-}
-
-export default function GalleryPage() {
-  const [selectedSeason, setSelectedSeason] = useState("all");
-
-  return (
-    <Layout>
-      <Container maxWidth="lg" sx={{ mt: 2, mb: 0.5 }}>
-        <RowRadioButtonsGroup
-          setSelectedSeason={setSelectedSeason}
-          selectedSeason={selectedSeason}
-        />
-      </Container>
-      <Grid container spacing={0.5}>
-        {pictureBank[selectedSeason].map((image) => {
-          return (
-            <Grid key={image.src} item sm={6} md={4}>
-              <img style={{ width: "100%" }} src={image.src}></img>
-            </Grid>
-          );
-        })}
-      </Grid>
-    </Layout>
   );
 }

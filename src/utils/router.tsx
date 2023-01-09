@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import GalleryPage from "../pages/GalleryPage";
+import GalleryPage from "../pages/GalleryPage/GalleryPage";
 import HomePage from "../pages/HomePage";
 
 const router = createBrowserRouter([
