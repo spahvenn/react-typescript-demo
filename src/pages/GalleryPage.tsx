@@ -58,16 +58,13 @@ export default function GalleryPage() {
       <Grid container spacing={0.5}>
         <Grid item xs={12}></Grid>
 
-        {
-          // @ts-ignore
-          pictureBank[selectedSeason].map((image) => {
-            return (
-              <Grid item xs={6} sm={6} md={4} lg={3}>
-                <img style={{ width: "100%" }} src={image.src}></img>
-              </Grid>
-            );
-          })
-        }
+        {pictureBank[selectedSeason].map((image) => {
+          return (
+            <Grid item sm={6} md={4}>
+              <img style={{ width: "100%" }} src={image.src}></img>
+            </Grid>
+          );
+        })}
       </Grid>
     </Layout>
   );

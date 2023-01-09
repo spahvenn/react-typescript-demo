@@ -165,7 +165,7 @@ const pictureBankSeasons = {
   ],
 };
 
-export const pictureBank = {
+export const pictureBank: { [key: string]: { src: string }[] } = {
   ...pictureBankSeasons,
   ...{
     all: [
