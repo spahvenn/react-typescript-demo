@@ -5,20 +5,11 @@ import {
   Grid,
   Radio,
   RadioGroup,
-  useRadioGroup,
 } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState } from "react";
 import { Layout } from "../components/Layout";
-import { pagePreviews, pictureBank } from "../utils/utils";
-
-const images = [
-  { src: pagePreviews.autumn.src },
-  { src: pagePreviews.autumn.src },
-  { src: pagePreviews.autumn.src },
-  { src: pagePreviews.autumn.src },
-  { src: pagePreviews.autumn.src },
-];
+import { pictureBank } from "../utils/utils";
 
 function RowRadioButtonsGroup({
   selectedSeason,
