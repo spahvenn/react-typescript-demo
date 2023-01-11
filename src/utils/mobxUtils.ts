@@ -1,9 +1,11 @@
-import { get, reaction, set } from "mobx";
+import { get, reaction, runInAction, set } from "mobx";
 import GeneralStore from "../mobx/GeneralStore";
 import { RootStore } from "../mobx/RootStore";
 
 function setHydrated(generalStore: GeneralStore) {
-  set(generalStore, "hydrated", "true");
+  runInAction(() => {
+    set(generalStore, "hydrated", "true");
+  });
 }
 
 export function hydrateStore(generalStore: GeneralStore) {
@@ -13,8 +15,7 @@ export function hydrateStore(generalStore: GeneralStore) {
     return;
   }
   const json = JSON.parse(jsonString);
-  let obj = Object.getOwnPropertyNames(generalStore);
-  obj.forEach((property) => {
+  Object.keys(generalStore).forEach((property) => {
     if (json?.hasOwnProperty(property)) {
       set(generalStore, property, json[property]);
     }
