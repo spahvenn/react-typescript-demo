@@ -2,7 +2,10 @@ import { styled, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
 const StyledNavLink = styled(NavLink)(({ theme }) => ({
-  color: theme.palette.primary.contrastText,
+  color:
+    theme.palette.mode === "light"
+      ? theme.palette.primary.contrastText
+      : theme.palette.primary.dark,
   textDecoration: "none",
   padding: `${theme.spacing(2)} ${theme.spacing(2)} ${theme.spacing(2)} 0`,
 }));
@@ -18,7 +21,6 @@ export function NavigationItem({ children, to }: Props) {
       {({ isActive }) => (
         <Typography
           variant="h6"
-          component="div"
           style={isActive ? { fontWeight: "bold" } : { fontWeight: "normal" }}
         >
           {children}
