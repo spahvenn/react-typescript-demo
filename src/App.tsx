@@ -9,7 +9,10 @@ import {
 } from "./mobx/RootStore";
 import { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
-import { reaction, set } from "mobx";
+import {
+  hydrateStore,
+  updateLocalStorageOnMobxStoreChange,
+} from "./utils/mobxUtils";
 
 export function App() {
   return (
@@ -33,23 +36,8 @@ const AppWithStoreAccess = observer(() => {
   );
 
   useEffect(() => {
-    reaction(
-      () => JSON.stringify(rootStore.generalStore),
-      (json) => {
-        localStorage.setItem("generalStore", json);
-      }
-    );
-    const jsonString = localStorage.getItem("generalStore");
-    if (!jsonString) {
-      return;
-    }
-    const json = JSON.parse(jsonString);
-    let obj = Object.getOwnPropertyNames(generalStore);
-    obj.forEach((property) => {
-      if (json?.hasOwnProperty(property)) {
-        set(generalStore, property, json[property]);
-      }
-    });
+    updateLocalStorageOnMobxStoreChange(rootStore);
+    hydrateStore(generalStore);
   }, []);
 
   return (
