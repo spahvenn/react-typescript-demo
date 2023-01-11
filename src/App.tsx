@@ -41,9 +41,13 @@ const AppWithStoreAccess = observer(() => {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <>
+      {generalStore.hydrated && (
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      )}
+    </>
   );
 });
