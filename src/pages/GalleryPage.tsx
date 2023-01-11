@@ -19,7 +19,7 @@ export default function GalleryPage() {
       <Grid container spacing={0.5} mb={0.5}>
         {pictureBank[selectedSeason].map((image) => {
           return (
-            <Grid key={image.src} item sm={6} md={4}>
+            <Grid key={image.src} item sm={6} md={4} lg={3}>
               <img
                 style={{ width: "100%", display: "block" }}
                 src={image.src}
