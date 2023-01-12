@@ -5,19 +5,21 @@ import { pictureBank } from "../utils/utils";
 import SeasonSelector from "../components/GalleryPage/SeasonSelector";
 import PictureDialog from "../components/GalleryPage/PictureDialog";
 import { Grid } from "@mui/material";
+import { ShoppingCartItem } from "../types";
 
 export default function GalleryPage() {
   const [selectedSeason, setSelectedSeason] = useState("all");
-  const [dialogPicture, setDialogPicture] = useState<{ src: string }>({
+  const [dialogPicture, setDialogPicture] = useState<ShoppingCartItem>({
+    id: "0",
     src: "",
   });
 
-  function openPictureDialog(image: { src: string }) {
+  function openPictureDialog(image: ShoppingCartItem) {
     setDialogPicture(image);
   }
 
   function closePictureDialog() {
-    setDialogPicture({ src: "" });
+    setDialogPicture({ id: "0", src: "" });
   }
 
   return (
@@ -42,10 +44,9 @@ export default function GalleryPage() {
         })}
       </Grid>
       <PictureDialog
-        open={dialogPicture.src !== ""}
+        open={dialogPicture.id !== "0"}
         onClose={closePictureDialog}
         img={dialogPicture}
-        addToCart={() => {}}
         closeDialog={closePictureDialog}
       />
     </Layout>

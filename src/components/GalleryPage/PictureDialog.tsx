@@ -10,6 +10,9 @@ import {
   styled,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import { observer } from "mobx-react-lite";
+import { useShoppingCartStore } from "../../mobx/RootStore";
+import { ShoppingCartItem } from "../../types";
 
 const StyledPictureDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paper": {
@@ -22,50 +25,52 @@ const StyledPictureDialog = styled(Dialog)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {
       padding: `${theme.spacing(1)} ${theme.spacing(1)}`,
     },
+    [theme.breakpoints.up("sm")]: {
+      padding: `${theme.spacing(1)} ${theme.spacing(1)}`,
+    },
   },
 }));
 
 interface Props {
-  img: { src: string };
-  addToCart: (image: { src: string }) => void;
+  img: ShoppingCartItem;
   closeDialog: () => void;
 }
 
-export default function PictureDialog({
-  img,
-  addToCart,
-  closeDialog,
-  open,
-}: Props & DialogProps) {
-  return (
-    <StyledPictureDialog
-      open={open}
-      onClose={closeDialog}
-      fullWidth={true}
-      maxWidth="lg"
-    >
-      <Box>
-        <DialogTitle>Image Preview</DialogTitle>
-        <IconButton
-          onClick={closeDialog}
-          sx={{
-            position: "absolute",
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-        <DialogContent dividers>
-          <img src={img.src} style={{ width: "100%", display: "block" }} />
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={() => addToCart(img)}>
-            Add to cart
-          </Button>
-        </DialogActions>
-      </Box>
-    </StyledPictureDialog>
-  );
-}
+const PictureDialog = observer(
+  ({ img, closeDialog, open }: Props & DialogProps) => {
+    const shoppingCartStore = useShoppingCartStore();
+    return (
+      <StyledPictureDialog
+        open={open}
+        onClose={closeDialog}
+        fullWidth={true}
+        maxWidth="md"
+      >
+        <Box>
+          <DialogTitle>Image Preview</DialogTitle>
+          <IconButton
+            onClick={closeDialog}
+            sx={{
+              position: "absolute",
+              right: 8,
+              top: 8,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+          <DialogContent dividers>
+            <img src={img.src} style={{ width: "100%", display: "block" }} />
+          </DialogContent>
+          <DialogActions>
+            <Button autoFocus onClick={() => shoppingCartStore.add(img)}>
+              Add to cart
+            </Button>
+          </DialogActions>
+        </Box>
+      </StyledPictureDialog>
+    );
+  }
+);
+
+export default PictureDialog;

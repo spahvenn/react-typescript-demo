@@ -1,10 +1,13 @@
 import { createContext, ReactNode, useContext } from "react";
 import GeneralStore from "./GeneralStore";
+import ShoppingCartStore from "./ShoppingCartStore";
 
 export class RootStore {
   generalStore: GeneralStore;
+  shoppingCartStore: ShoppingCartStore;
   constructor() {
     this.generalStore = new GeneralStore();
+    this.shoppingCartStore = new ShoppingCartStore();
   }
 }
 
@@ -28,4 +31,9 @@ export function useRootStore() {
 export function useGeneralStore() {
   const { generalStore } = useRootStore();
   return generalStore;
+}
+
+export function useShoppingCartStore() {
+  const { shoppingCartStore } = useRootStore();
+  return shoppingCartStore;
 }
