@@ -10,7 +10,6 @@ export default class ShoppingCartStore {
   }
 
   add(item: ShoppingCartItem) {
-    console.log("adding to shoppingCart");
     this.shoppingCartItems.push(item);
   }
 

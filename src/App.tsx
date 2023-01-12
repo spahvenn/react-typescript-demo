@@ -6,11 +6,12 @@ import {
   RootStoreProvider,
   useGeneralStore,
   useRootStore,
+  useShoppingCartStore,
 } from "./mobx/RootStore";
 import { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
 import {
-  hydrateStore,
+  hydrateStores,
   updateLocalStorageOnMobxStoreChange,
 } from "./utils/mobxUtils";
 
@@ -25,6 +26,7 @@ export function App() {
 const AppWithStoreAccess = observer(() => {
   const rootStore = useRootStore();
   const generalStore = useGeneralStore();
+  const shoppingCartStore = useShoppingCartStore();
   const theme = useMemo(
     () =>
       createTheme({
@@ -37,12 +39,12 @@ const AppWithStoreAccess = observer(() => {
 
   useEffect(() => {
     updateLocalStorageOnMobxStoreChange(rootStore);
-    hydrateStore(generalStore);
+    hydrateStores(rootStore);
   }, []);
 
   return (
     <>
-      {generalStore.hydrated && (
+      {generalStore.hydrated && shoppingCartStore.hydrated && (
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <RouterProvider router={router} />

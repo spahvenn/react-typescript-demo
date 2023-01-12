@@ -1,25 +1,34 @@
 import { get, reaction, runInAction, set } from "mobx";
 import GeneralStore from "../mobx/GeneralStore";
 import { RootStore } from "../mobx/RootStore";
+import ShoppingCartStore from "../mobx/ShoppingCartStore";
 
-function setHydrated(generalStore: GeneralStore) {
+function setHydrated(store: GeneralStore | ShoppingCartStore) {
   runInAction(() => {
-    set(generalStore, "hydrated", "true");
+    set(store, "hydrated", "true");
   });
 }
 
-export function hydrateStore(generalStore: GeneralStore) {
-  const jsonString = localStorage.getItem("generalStore");
+export function hydrateStores(rootStore: RootStore) {
+  hydrateStore(rootStore.generalStore, "generalStore");
+  hydrateStore(rootStore.shoppingCartStore, "shoppingCartStore");
+}
+
+export function hydrateStore(
+  store: GeneralStore | ShoppingCartStore,
+  storeName: string
+) {
+  const jsonString = localStorage.getItem(storeName);
   if (!jsonString) {
-    setHydrated(generalStore);
+    setHydrated(store);
     return;
   }
   const json = JSON.parse(jsonString);
-  Object.keys(generalStore).forEach((property) => {
+  Object.keys(store).forEach((property) => {
     if (json?.hasOwnProperty(property)) {
-      set(generalStore, property, json[property]);
+      set(store, property, json[property]);
     }
-    setHydrated(generalStore);
+    setHydrated(store);
   });
 }
 
@@ -27,14 +36,32 @@ export function updateLocalStorageOnMobxStoreChange(rootStore: RootStore) {
   reaction(
     () => JSON.stringify(rootStore.generalStore),
     (json) => {
-      const obj = JSON.parse(json);
-      const newStoreJson: any = {};
-      Object.keys(obj).map((key) => {
-        if (rootStore.generalStore.localStorageProps[key]) {
-          newStoreJson[key] = get(rootStore.generalStore, key);
-        }
-      });
-      localStorage.setItem("generalStore", JSON.stringify(newStoreJson));
+      updateLocalStorage(rootStore.generalStore, "generalStore", json);
     }
   );
+  reaction(
+    () => JSON.stringify(rootStore.shoppingCartStore),
+    (json) => {
+      updateLocalStorage(
+        rootStore.shoppingCartStore,
+        "shoppingCartStore",
+        json
+      );
+    }
+  );
+}
+
+function updateLocalStorage(
+  store: GeneralStore | ShoppingCartStore,
+  storeName: string,
+  value: any
+) {
+  const obj = JSON.parse(value);
+  const newStoreJson: any = {};
+  Object.keys(obj).map((key) => {
+    if (store.localStorageProps[key]) {
+      newStoreJson[key] = get(store, key);
+    }
+  });
+  localStorage.setItem(storeName, JSON.stringify(newStoreJson));
 }

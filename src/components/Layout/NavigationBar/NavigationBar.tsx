@@ -1,9 +1,9 @@
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Container, Grid } from "@mui/material";
 import { NavigationItem } from "./NavigationItem";
 import ColorModeToggle from "./ColorModeToggle";
+import ShoppingCartNavItem from "./ShoppingCartNavItem";
 
 export default function NavigationBar() {
   return (
@@ -25,7 +25,7 @@ export default function NavigationBar() {
                 }}
               >
                 <ColorModeToggle />
-                <ShoppingCartIcon />
+                <ShoppingCartNavItem />
               </Box>
             </Box>
           </Grid>
