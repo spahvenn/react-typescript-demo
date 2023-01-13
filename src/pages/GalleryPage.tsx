@@ -10,7 +10,7 @@ import { ShoppingCartItem } from "../types";
 export default function GalleryPage() {
   const [selectedSeason, setSelectedSeason] = useState("all");
   const [dialogPicture, setDialogPicture] = useState<ShoppingCartItem>({
-    id: "0",
+    id: 0,
     src: "",
   });
 
@@ -19,7 +19,7 @@ export default function GalleryPage() {
   }
 
   function closePictureDialog() {
-    setDialogPicture({ id: "0", src: "" });
+    setDialogPicture({ id: 0, src: "" });
   }
 
   return (
@@ -44,7 +44,7 @@ export default function GalleryPage() {
         })}
       </Grid>
       <PictureDialog
-        open={dialogPicture.id !== "0"}
+        open={dialogPicture.id !== 0}
         onClose={closePictureDialog}
         img={dialogPicture}
         closeDialog={closePictureDialog}
