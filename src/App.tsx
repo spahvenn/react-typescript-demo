@@ -49,7 +49,7 @@ const AppWithStoreAccess = observer(() => {
       {generalStore.hydrated && shoppingCartStore.hydrated && (
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <ToastContainer />
+          <ToastContainer theme={theme.palette.mode} />
           <RouterProvider router={router} />
         </ThemeProvider>
       )}
