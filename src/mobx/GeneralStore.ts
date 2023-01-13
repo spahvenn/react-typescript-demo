@@ -3,7 +3,7 @@ import { makeAutoObservable } from "mobx";
 export default class GeneralStore {
   uiMode: "light" | "dark" = "light";
   hydrated: boolean = false;
-  localStorageProps: { [key: string]: boolean } = { uiMode: true };
+  localStorageProps: string[] = ["uiMode"];
   constructor() {
     makeAutoObservable(this);
   }

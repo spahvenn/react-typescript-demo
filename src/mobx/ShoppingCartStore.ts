@@ -4,7 +4,7 @@ import { ShoppingCartItem } from "../types";
 export default class ShoppingCartStore {
   shoppingCartItems: ShoppingCartItem[] = [];
   hydrated: boolean = false;
-  localStorageProps: { [key: string]: boolean } = { shoppingCartItems: true };
+  localStorageProps: string[] = ["shoppingCartItems"];
   constructor() {
     makeAutoObservable(this);
   }
