@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -11,8 +10,8 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { observer } from "mobx-react-lite";
-import { useShoppingCartStore } from "../../mobx/RootStore";
 import { ShoppingCartItem } from "../../types";
+import AddRemoveShoppingCartButton from "./AddRemoveShoppingCartButton";
 
 const StyledPictureDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paper": {
@@ -38,7 +37,6 @@ interface Props {
 
 const PictureDialog = observer(
   ({ img, closeDialog, open }: Props & DialogProps) => {
-    const shoppingCartStore = useShoppingCartStore();
     return (
       <StyledPictureDialog
         open={open}
@@ -63,9 +61,10 @@ const PictureDialog = observer(
             <img src={img.src} style={{ width: "100%", display: "block" }} />
           </DialogContent>
           <DialogActions>
-            <Button autoFocus onClick={() => shoppingCartStore.add(img)}>
-              Add to cart
-            </Button>
+            <AddRemoveShoppingCartButton
+              shoppingCartItem={img}
+              closeDialog={closeDialog}
+            />
           </DialogActions>
         </Box>
       </StyledPictureDialog>

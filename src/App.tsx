@@ -14,6 +14,8 @@ import {
   hydrateStores,
   updateLocalStorageOnMobxStoreChange,
 } from "./utils/mobxUtils";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function App() {
   return (
@@ -47,6 +49,7 @@ const AppWithStoreAccess = observer(() => {
       {generalStore.hydrated && shoppingCartStore.hydrated && (
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <ToastContainer />
           <RouterProvider router={router} />
         </ThemeProvider>
       )}
