@@ -90,7 +90,7 @@ export function MobileCarouselContainer({
           backgroundColor: theme.palette.primary.main,
         })}
       >
-        <Box padding={1}>
+        <Box padding={1.25} mt={1.5}>
           <Typography
             fontSize="1.2rem"
             mb={1}
