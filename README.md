@@ -1,4 +1,20 @@
-# Getting Started with Create React App
+# About the project
+
+Gallery Shop Demo
+
+This demo shows usage of
+
+- React
+- TypeScript
+- Material UI component library
+- mobx
+- react-router
+- styled components
+- other libraries e.g. react-toastify, prettier, husky
+
+You can run the project by installing node 18 and running 
+- npm install
+- npm start
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
