@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from "@mui/material";
 import { createTheme, CssBaseline } from "@mui/material";
 import router from "./utils/router";
 import { RouterProvider } from "react-router-dom";
