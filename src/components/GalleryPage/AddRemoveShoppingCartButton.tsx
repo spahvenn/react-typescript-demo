@@ -3,6 +3,8 @@ import { observer } from "mobx-react-lite";
 import { useShoppingCartStore } from "../../mobx/RootStore";
 import { ShoppingCartItem } from "../../types";
 import { showSuccessMsg } from "../../utils/toast";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 
 interface Props {
   shoppingCartItem: ShoppingCartItem;
@@ -19,6 +21,13 @@ const AddRemoveShoppingCartButton = observer(
       : "add";
     return (
       <Button
+        endIcon={
+          buttonType === "add" ? (
+            <AddShoppingCartIcon />
+          ) : (
+            <RemoveShoppingCartIcon />
+          )
+        }
         sx={(theme) => ({
           margin: `${theme.spacing(0.5)} ${theme.spacing(0)}`,
         })}
