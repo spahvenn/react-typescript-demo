@@ -23,7 +23,6 @@ const AddRemoveShoppingCartButton = observer(
           margin: `${theme.spacing(0.5)} ${theme.spacing(0)}`,
         })}
         variant="contained"
-        autoFocus
         onClick={() => {
           buttonType === "add"
             ? shoppingCartStore.add(shoppingCartItem)

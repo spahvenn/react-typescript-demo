@@ -1,25 +1,47 @@
 import { Container } from "@mui/system";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Layout } from "../components/Layout/Layout";
-import { pictureBank } from "../utils/utils";
+import { emptyPictureValue, pictureBank } from "../utils/utils";
 import SeasonSelector from "../components/GalleryPage/SeasonSelector";
 import PictureDialog from "../components/GalleryPage/PictureDialog";
 import { Box, CardMedia, Grid } from "@mui/material";
 import { ShoppingCartItem } from "../types";
+import { useLocation, useNavigate } from "react-router";
+import { useSearchParams } from "react-router-dom";
 
 export default function GalleryPage() {
   const [selectedSeason, setSelectedSeason] = useState("all");
-  const [dialogPicture, setDialogPicture] = useState<ShoppingCartItem>({
-    id: 0,
-    src: "",
-  });
+  const [dialogPicture, setDialogPicture] =
+    useState<ShoppingCartItem>(emptyPictureValue);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const urlSeason = searchParams.get("season");
+    if (urlSeason && urlSeason !== null) {
+      setSelectedSeason(urlSeason);
+    }
+
+    const pictureId = searchParams.get("pictureId");
+    if (pictureId) {
+      const picture = pictureBank.all.find((pic) => {
+        return pic.id === Number(pictureId);
+      });
+      if (picture) {
+        setDialogPicture(picture);
+      }
+    }
+  }, []);
 
   function openPictureDialog(image: ShoppingCartItem) {
+    navigate(location.pathname + location.search + "&pictureId=" + image.id);
     setDialogPicture(image);
   }
 
   function closePictureDialog() {
-    setDialogPicture({ id: 0, src: "" });
+    navigate(location.pathname + "?season=" + searchParams.get("season"));
+    setDialogPicture(emptyPictureValue);
   }
 
   return (

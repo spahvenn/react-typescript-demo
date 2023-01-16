@@ -249,3 +249,8 @@ export const carouselItems: CarouselItem[] = [
     src: pagePreviews.autumn.src,
   },
 ];
+
+export const emptyPictureValue: ShoppingCartItem = {
+  id: 0,
+  src: "",
+};

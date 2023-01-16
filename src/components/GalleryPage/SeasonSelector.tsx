@@ -5,7 +5,6 @@ import {
   FormControlLabel,
   Radio,
 } from "@mui/material";
-import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
 export default function SeasonSelector({
@@ -15,14 +14,7 @@ export default function SeasonSelector({
   selectedSeason: string;
   setSelectedSeason: (season: string) => void;
 }) {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  useEffect(() => {
-    const urlSeason = searchParams.get("season");
-    if (urlSeason && urlSeason !== null) {
-      setSelectedSeason(urlSeason);
-    }
-  }, []);
+  const [, setSearchParams] = useSearchParams();
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setSelectedSeason(event.target.value);

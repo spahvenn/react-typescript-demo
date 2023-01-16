@@ -6,10 +6,11 @@ import PictureDialog from "../components/GalleryPage/PictureDialog";
 import { BasicLayout } from "../components/Layout/Layout";
 import { useShoppingCartStore } from "../mobx/RootStore";
 import { showInfoMsg } from "../utils/toast";
+import { emptyPictureValue } from "../utils/utils";
 
 const ShoppingCartPage = observer(() => {
   const { shoppingCartItems } = useShoppingCartStore();
-  const [dialogPicture, setDialogPicture] = useState({ id: 0, src: "" });
+  const [dialogPicture, setDialogPicture] = useState(emptyPictureValue);
   return (
     <BasicLayout>
       <Grid container>
@@ -72,9 +73,9 @@ const ShoppingCartPage = observer(() => {
       </Grid>
       <PictureDialog
         open={dialogPicture.id !== 0}
-        onClose={() => setDialogPicture({ id: 0, src: "" })}
+        onClose={() => setDialogPicture(emptyPictureValue)}
         img={dialogPicture}
-        closeDialog={() => setDialogPicture({ id: 0, src: "" })}
+        closeDialog={() => setDialogPicture(emptyPictureValue)}
       />
     </BasicLayout>
   );
