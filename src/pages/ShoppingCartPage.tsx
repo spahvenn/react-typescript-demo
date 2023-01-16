@@ -1,12 +1,15 @@
 import { Button, Grid, Link, Typography } from "@mui/material";
 import { observer } from "mobx-react-lite";
+import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import PictureDialog from "../components/GalleryPage/PictureDialog";
 import { BasicLayout } from "../components/Layout/Layout";
 import { useShoppingCartStore } from "../mobx/RootStore";
 import { showInfoMsg } from "../utils/toast";
 
 const ShoppingCartPage = observer(() => {
   const { shoppingCartItems } = useShoppingCartStore();
+  const [dialogPicture, setDialogPicture] = useState({ id: 0, src: "" });
   return (
     <BasicLayout>
       <Grid container>
@@ -34,8 +37,13 @@ const ShoppingCartPage = observer(() => {
                 return (
                   <Grid item xs={6} sm={4} md={3}>
                     <img
-                      style={{ width: "100%", display: "block" }}
+                      style={{
+                        width: "100%",
+                        display: "block",
+                        cursor: "pointer",
+                      }}
                       src={item.src}
+                      onClick={() => setDialogPicture(item)}
                     />
                   </Grid>
                 );
@@ -62,6 +70,12 @@ const ShoppingCartPage = observer(() => {
           </>
         )}
       </Grid>
+      <PictureDialog
+        open={dialogPicture.id !== 0}
+        onClose={() => setDialogPicture({ id: 0, src: "" })}
+        img={dialogPicture}
+        closeDialog={() => setDialogPicture({ id: 0, src: "" })}
+      />
     </BasicLayout>
   );
 });

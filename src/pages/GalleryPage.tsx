@@ -44,6 +44,7 @@ export default function GalleryPage() {
                   sx={{
                     width: "100%",
                     display: "block",
+                    cursor: "pointer",
                     transition: "transform 0.5s ease",
                     ":hover": { transform: "scale(1.2)" },
                   }}
