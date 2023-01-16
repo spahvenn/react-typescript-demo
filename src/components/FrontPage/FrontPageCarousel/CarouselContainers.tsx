@@ -91,7 +91,7 @@ export function MobileCarouselContainer({
           borderRadius: 1,
         })}
       >
-        <Box padding={1.5} mt={3}>
+        <Box padding={1.5} mt={1.5}>
           <Typography
             fontSize="1.2rem"
             mb={1.25}

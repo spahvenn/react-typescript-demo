@@ -8,7 +8,7 @@ import {
 export default function FrontPageCarousel() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  function onChange(now?: number, previous?: number) {
+  function onChange(now?: number) {
     if (now) {
       setCurrentImageIndex(now);
     }
