@@ -43,8 +43,8 @@ const ShoppingCartPage = observer(() => {
             </Grid>
             <Grid container>
               <Grid item xs={12}>
-                <Typography gutterBottom>
-                  Total Price: {shoppingCartItems.length} * 10€ ={" "}
+                <Typography mb={2} fontSize="1.25rem">
+                  Total Price: {shoppingCartItems.length} * 10 € ={" "}
                   {shoppingCartItems.length * 10} €
                 </Typography>
                 <Button

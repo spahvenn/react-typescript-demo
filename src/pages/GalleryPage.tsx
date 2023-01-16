@@ -4,7 +4,7 @@ import { Layout } from "../components/Layout/Layout";
 import { pictureBank } from "../utils/utils";
 import SeasonSelector from "../components/GalleryPage/SeasonSelector";
 import PictureDialog from "../components/GalleryPage/PictureDialog";
-import { Grid } from "@mui/material";
+import { Box, CardMedia, Grid } from "@mui/material";
 import { ShoppingCartItem } from "../types";
 
 export default function GalleryPage() {
@@ -34,11 +34,23 @@ export default function GalleryPage() {
         {pictureBank[selectedSeason].map((image) => {
           return (
             <Grid key={image.src} item sm={6} md={4} lg={3}>
-              <img
-                style={{ width: "100%", display: "block" }}
-                src={image.src}
-                onClick={() => openPictureDialog(image)}
-              ></img>
+              <Box
+                sx={{
+                  overflow: "hidden",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    width: "100%",
+                    display: "block",
+                    transition: "transform 0.5s ease",
+                    ":hover": { transform: "scale(1.2)" },
+                  }}
+                  src={image.src}
+                  onClick={() => openPictureDialog(image)}
+                />
+              </Box>
             </Grid>
           );
         })}
