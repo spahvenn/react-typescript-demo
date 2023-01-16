@@ -88,12 +88,13 @@ export function MobileCarouselContainer({
       <Box
         sx={(theme) => ({
           backgroundColor: theme.palette.primary.main,
+          borderRadius: 1,
         })}
       >
-        <Box padding={1.25} mt={1.5}>
+        <Box padding={1.5} mt={3}>
           <Typography
             fontSize="1.2rem"
-            mb={1}
+            mb={1.25}
             color={(theme) => theme.palette.primary.contrastText}
             textAlign="center"
           >
