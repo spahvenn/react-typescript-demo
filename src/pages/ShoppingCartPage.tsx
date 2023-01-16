@@ -24,7 +24,7 @@ const ShoppingCartPage = observer(() => {
             <Typography gutterBottom>Your shopping cart is empty.</Typography>
             <Typography>
               Please browse the{" "}
-              <Link component={RouterLink} to="/gallery">
+              <Link component={RouterLink} to="/gallery?season=all">
                 gallery
               </Link>{" "}
               to add items to your shopping cart.

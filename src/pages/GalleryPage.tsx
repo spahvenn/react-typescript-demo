@@ -70,7 +70,7 @@ export default function GalleryPage() {
                     transition: "transform 0.5s ease",
                     ":hover": { transform: "scale(1.2)" },
                   }}
-                  src={image.src}
+                  src={image.srcSmall}
                   onClick={() => openPictureDialog(image)}
                 />
               </Box>

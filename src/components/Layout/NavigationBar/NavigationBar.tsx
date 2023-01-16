@@ -14,7 +14,9 @@ export default function NavigationBar() {
             <Box sx={{ display: "flex" }}>
               <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
                 <NavigationItem to="/">Home</NavigationItem>
-                <NavigationItem to="/gallery">Gallery</NavigationItem>
+                <NavigationItem to="/gallery?season=all">
+                  Gallery
+                </NavigationItem>
               </Box>
               <Box
                 sx={{
