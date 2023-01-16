@@ -12,6 +12,11 @@ This demo shows usage of
 - styled components
 - other libraries e.g. react-toastify, prettier, husky
 
+Features:
+- responsive UI
+- different image size of the same image for different uses cases for faster loading
+- stores specific data into localstorage (e.g. shopping cart and uiMode) and hydrates mobx store on browser refresh.
+
 You can run the project by installing node 18 and running 
 - npm install
 - npm start

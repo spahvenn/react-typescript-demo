@@ -5,7 +5,7 @@ const StyledNavLink = styled(NavLink)(({ theme }) => ({
   color:
     theme.palette.mode === "light"
       ? theme.palette.primary.contrastText
-      : theme.palette.primary.dark,
+      : "#90caf9",
   textDecoration: "none",
   padding: `${theme.spacing(2)} ${theme.spacing(2)} ${theme.spacing(2)} 0`,
 }));
