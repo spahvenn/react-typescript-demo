@@ -16,7 +16,7 @@ export function DesktopCarouselContainer({
   currentImageIndex,
 }: CarouselContainerProps) {
   return (
-    <Box display={{ xs: "none", sm: "block" }}>
+    <Box>
       <Grid container>
         <Grid item xs={7} sm={8} md={9}>
           <Carousel indicators={false} onChange={onChange}>
@@ -75,7 +75,7 @@ export function MobileCarouselContainer({
   currentImageIndex,
 }: CarouselContainerProps) {
   return (
-    <Box display={{ xs: "block", sm: "none" }}>
+    <Box>
       <Carousel indicators={false} onChange={onChange}>
         {carouselItems.map((carouselItem) => {
           return (

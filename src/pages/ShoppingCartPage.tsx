@@ -43,7 +43,7 @@ const ShoppingCartPage = observer(() => {
                         display: "block",
                         cursor: "pointer",
                       }}
-                      src={item.src}
+                      src={item.srcSmall}
                       onClick={() => setDialogPicture(item)}
                     />
                   </Grid>
