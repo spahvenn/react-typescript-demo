@@ -2,20 +2,15 @@
 
 Gallery Shop Demo
 
-This demo shows usage of
-
-- React
-- TypeScript
-- Material UI component library
-- mobx
-- react-router
-- styled components
-- other libraries e.g. react-toastify, prettier, husky
-
 Features:
+- built with React and TypeScript with Material UI component library
 - responsive UI
 - different image size of the same image for different uses cases for faster loading
-- stores specific data into localstorage (e.g. shopping cart and uiMode) and hydrates mobx store on browser refresh.
+- toast messages with react-toastify
+- husky precommit hook using prettier to force unification of code style on commits
+- state management with react useState and global state with mobx
+- stores specific data into localstorage (e.g. shopping cart and UI Theme) and hydrates mobx store from localstorage on browser refresh
+
 
 You can run the project by installing node 18 and running 
 - npm install

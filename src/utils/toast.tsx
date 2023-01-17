@@ -1,9 +1,13 @@
 import { toast, ToastOptions } from "react-toastify";
 
+const defaultOptions = {
+  autoClose: 4000,
+};
+
 export function showSuccessMsg(msg: string, options: ToastOptions = {}) {
-  toast(msg, { ...{ type: "success", hideProgressBar: true }, ...options });
+  toast.success(msg, { ...defaultOptions, ...options });
 }
 
 export function showInfoMsg(msg: string, options: ToastOptions = {}) {
-  toast(msg, { ...{ hideProgressBar: true }, ...options });
+  toast.info(msg, { ...defaultOptions, ...options });
 }
