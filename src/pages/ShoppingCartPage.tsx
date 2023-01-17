@@ -43,6 +43,7 @@ const ShoppingCartPage = observer(() => {
                         display: "block",
                         cursor: "pointer",
                       }}
+                      alt={"Shopping cart item"}
                       src={item.srcSmall}
                       onClick={() => setDialogPicture(item)}
                     />

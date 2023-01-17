@@ -15,7 +15,7 @@ export function PagePreviewBox({ pagePreviewInfo }: Props) {
   return (
     <Box mb={{ md: 2, lg: 0 }}>
       <Link to={btnUrl}>
-        <img style={{ width: "100%" }} src={srcSmall} />
+        <img alt={title} style={{ width: "100%" }} src={srcSmall} />
       </Link>
       <Typography variant="h5" mt={0.5} mb={0.5}>
         {title}

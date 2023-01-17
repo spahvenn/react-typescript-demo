@@ -58,7 +58,7 @@ function updateLocalStorage(
 ) {
   const obj = JSON.parse(value);
   const newStoreJson: any = {};
-  Object.keys(obj).map((key) => {
+  Object.keys(obj).forEach((key) => {
     if (store.localStorageProps.find((prop) => prop === key)) {
       newStoreJson[key] = get(store, key);
     }
