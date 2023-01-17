@@ -1,5 +1,6 @@
 import {
   Box,
+  CardMedia,
   Dialog,
   DialogActions,
   DialogContent,
@@ -12,6 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { observer } from "mobx-react-lite";
 import { ShoppingCartItem } from "../../types";
 import AddRemoveShoppingCartButton from "./AddRemoveShoppingCartButton";
+import { useDialogPictureMinHeight } from "../../utils/utils";
 
 const StyledPictureDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paper": {
@@ -37,6 +39,7 @@ interface Props {
 
 const PictureDialog = observer(
   ({ img, closeDialog, open }: Props & DialogProps) => {
+    const dialogPictureMinHeight = useDialogPictureMinHeight();
     return (
       <StyledPictureDialog
         open={open}
@@ -58,7 +61,15 @@ const PictureDialog = observer(
             <CloseIcon />
           </IconButton>
           <DialogContent dividers>
-            <img src={img.src} style={{ width: "100%", display: "block" }} />
+            <CardMedia
+              component="img"
+              src={img.src}
+              sx={{
+                width: "100%",
+                display: "block",
+                minHeight: dialogPictureMinHeight,
+              }}
+            />
           </DialogContent>
           <DialogActions>
             <AddRemoveShoppingCartButton

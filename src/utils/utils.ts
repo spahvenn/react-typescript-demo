@@ -1,3 +1,4 @@
+import { useMediaQuery, useTheme } from "@mui/material";
 import { ShoppingCartItem } from "../types";
 
 export const pagePreviews = {
@@ -349,3 +350,38 @@ export const emptyPictureValue: ShoppingCartItem = {
   src: "",
   srcSmall: "",
 };
+
+function useBreakPointName() {
+  const theme = useTheme();
+  const xs = useMediaQuery(theme.breakpoints.only("xs"));
+  const sm = useMediaQuery(theme.breakpoints.only("sm"));
+  const md = useMediaQuery(theme.breakpoints.only("md"));
+  if (xs) {
+    return "xs";
+  } else if (sm) {
+    return "sm";
+  } else if (md) {
+    return "md";
+  } else {
+    return "lg";
+  }
+}
+
+export function useDialogPictureMinHeight() {
+  const breakpoint = useBreakPointName();
+
+  switch (breakpoint) {
+    case "xs": {
+      return "193px";
+    }
+    case "sm": {
+      return "295px";
+    }
+    case "md": {
+      return "460px";
+    }
+    default: {
+      return "496px";
+    }
+  }
+}
