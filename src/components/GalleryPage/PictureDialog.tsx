@@ -5,7 +5,6 @@ import {
   DialogActions,
   DialogContent,
   DialogProps,
-  DialogTitle,
   IconButton,
   styled,
 } from "@mui/material";
@@ -48,7 +47,6 @@ const PictureDialog = observer(
         maxWidth="md"
       >
         <Box>
-          <DialogTitle>Image Preview</DialogTitle>
           <IconButton
             onClick={closeDialog}
             sx={{
