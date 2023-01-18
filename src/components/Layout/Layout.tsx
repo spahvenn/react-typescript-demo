@@ -1,21 +1,25 @@
 import { Box, Container } from "@mui/material";
+import ScrollToTop from "../ScrollToTop";
 import Footer from "./Footer";
 import NavigationBar from "./NavigationBar/NavigationBar";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        minHeight: "100vh",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-      }}
-    >
-      <NavigationBar />
-      {children}
-      <Footer />
-    </Box>
+    <>
+      <ScrollToTop />
+      <Box
+        sx={{
+          display: "flex",
+          minHeight: "100vh",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+        }}
+      >
+        <NavigationBar />
+        {children}
+        <Footer />
+      </Box>
+    </>
   );
 }
 
