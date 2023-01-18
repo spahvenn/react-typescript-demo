@@ -367,6 +367,20 @@ function useBreakPointName() {
   }
 }
 
+export function usePictureSrc(image: ShoppingCartItem) {
+  const breakpoint = useBreakPointName();
+
+  switch (breakpoint) {
+    case "xs": {
+      return image.srcSmall;
+    }
+    default: {
+      return image.src;
+    }
+  }
+}
+
+
 export function useDialogPictureMinHeight() {
   const breakpoint = useBreakPointName();
 
