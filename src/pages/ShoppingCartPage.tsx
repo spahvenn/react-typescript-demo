@@ -36,7 +36,7 @@ const ShoppingCartPage = observer(() => {
             <Grid container spacing={0.5} mb={2}>
               {shoppingCartItems.map((item) => {
                 return (
-                  <Grid item xs={6} sm={4} md={3}>
+                  <Grid key={item.id} item xs={6} sm={4} md={3}>
                     <img
                       style={{
                         width: "100%",
