@@ -7,7 +7,7 @@ Features:
 - responsive UI
 - different image size of the same image for different uses cases for faster loading
 - toast messages with react-toastify
-- husky precommit hook using prettier to force unification of code style on commits
+- husky precommit hook using prettier to force unification of code style on commits and run tests
 - state management with react useState and global state with mobx
 - stores specific data into localstorage (e.g. shopping cart and UI Theme) and hydrates mobx store from localstorage on browser refresh
 
