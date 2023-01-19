@@ -7,7 +7,7 @@ import { routes } from "../../utils/router";
 
 window.scrollTo = jest.fn();
 
-const shoppingCartItem = { id: 1, src: "", srcSmall: "" };
+const shoppingCartItemId = 1
 
 function createRouter() {
   return createMemoryRouter(routes, {
@@ -25,7 +25,7 @@ describe("AddRemoveShoppingCartButton", () => {
   it("should render add button and show toast on click", async () => {
     const testStore = {
       generalStore: {},
-      shoppingCartStore: { shoppingCartItems: [], add: jest.fn() },
+      shoppingCartStore: { shoppingCartImageIds: [], add: jest.fn() },
     };
     render(
       <store.RootStoreProvider
@@ -46,7 +46,7 @@ describe("AddRemoveShoppingCartButton", () => {
     const testStore = {
       generalStore: {},
       shoppingCartStore: {
-        shoppingCartItems: [shoppingCartItem],
+        shoppingCartImageIds: [shoppingCartItemId],
         remove: jest.fn(),
       },
     };

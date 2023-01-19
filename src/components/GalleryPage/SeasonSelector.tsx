@@ -6,6 +6,7 @@ import {
   Radio,
 } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
+import { ChangeEvent } from "react";
 
 export default function SeasonSelector({
   selectedSeason,
@@ -16,7 +17,7 @@ export default function SeasonSelector({
 }) {
   const [, setSearchParams] = useSearchParams();
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setSelectedSeason(event.target.value);
     setSearchParams({ season: event.target.value });
   }

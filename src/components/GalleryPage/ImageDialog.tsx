@@ -10,9 +10,9 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { observer } from "mobx-react-lite";
-import { ShoppingCartItem } from "../../types";
+import { Image } from "../../types";
 import AddRemoveShoppingCartButton from "./AddRemoveShoppingCartButton";
-import { useDialogPictureMinHeight, usePictureSrc } from "../../utils/utils";
+import { useDialogImageMinHeight, useImageSrc } from "../../utils/utils";
 
 const StyledPictureDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paper": {
@@ -32,14 +32,14 @@ const StyledPictureDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 interface Props {
-  img: ShoppingCartItem;
+  img: Image;
   closeDialog: () => void;
 }
 
-const PictureDialog = observer(
+const ImageDialog = observer(
   ({ img, closeDialog, open }: Props & DialogProps) => {
-    const dialogPictureMinHeight = useDialogPictureMinHeight();
-    const pictureSrc = usePictureSrc(img);
+    const dialogPictureMinHeight = useDialogImageMinHeight();
+    const pictureSrc = useImageSrc(img);
     return (
       <StyledPictureDialog
         open={open}
@@ -72,7 +72,7 @@ const PictureDialog = observer(
           </DialogContent>
           <DialogActions>
             <AddRemoveShoppingCartButton
-              shoppingCartItem={img}
+              image={img}
               closeDialog={closeDialog}
             />
           </DialogActions>
@@ -82,4 +82,4 @@ const PictureDialog = observer(
   }
 );
 
-export default PictureDialog;
+export default ImageDialog;

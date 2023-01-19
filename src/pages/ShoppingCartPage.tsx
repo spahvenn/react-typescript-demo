@@ -2,15 +2,15 @@ import { Button, Grid, Link, Typography } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import PictureDialog from "../components/GalleryPage/PictureDialog";
+import ImageDialog from "../components/GalleryPage/ImageDialog";
 import { BasicLayout } from "../components/Layout/Layout";
 import { useShoppingCartStore } from "../mobx/RootStore";
 import { showInfoMsg } from "../utils/toast";
-import { emptyPictureValue } from "../utils/utils";
+import { emptyImageValue, getImageById } from "../utils/utils";
 
 const ShoppingCartPage = observer(() => {
-  const { shoppingCartItems } = useShoppingCartStore();
-  const [dialogPicture, setDialogPicture] = useState(emptyPictureValue);
+  const { shoppingCartImageIds } = useShoppingCartStore();
+  const [dialogPicture, setDialogPicture] = useState(emptyImageValue);
   return (
     <BasicLayout>
       <Grid container>
@@ -19,7 +19,7 @@ const ShoppingCartPage = observer(() => {
             Shopping Cart
           </Typography>
         </Grid>
-        {shoppingCartItems.length === 0 && (
+        {shoppingCartImageIds.length === 0 && (
           <Grid item xs={12}>
             <Typography gutterBottom>Your shopping cart is empty.</Typography>
             <Typography>
@@ -31,12 +31,12 @@ const ShoppingCartPage = observer(() => {
             </Typography>
           </Grid>
         )}
-        {shoppingCartItems.length > 0 && (
+        {shoppingCartImageIds.length > 0 && (
           <>
             <Grid container spacing={0.5} mb={2}>
-              {shoppingCartItems.map((item) => {
+              {shoppingCartImageIds.map((itemId) => {
                 return (
-                  <Grid key={item.id} item xs={6} sm={4} md={3}>
+                  <Grid key={itemId} item xs={6} sm={4} md={3}>
                     <img
                       style={{
                         width: "100%",
@@ -44,8 +44,8 @@ const ShoppingCartPage = observer(() => {
                         cursor: "pointer",
                       }}
                       alt={"Shopping cart item"}
-                      src={item.srcSmall}
-                      onClick={() => setDialogPicture(item)}
+                      src={getImageById(itemId).srcSmall}
+                      onClick={() => setDialogPicture(getImageById(itemId))}
                     />
                   </Grid>
                 );
@@ -54,8 +54,8 @@ const ShoppingCartPage = observer(() => {
             <Grid container>
               <Grid item xs={12}>
                 <Typography mb={2} fontSize="1.25rem">
-                  Total Price: {shoppingCartItems.length} * 10 € ={" "}
-                  {shoppingCartItems.length * 10} €
+                  Total Price: {shoppingCartImageIds.length} * 10 € ={" "}
+                  {shoppingCartImageIds.length * 10} €
                 </Typography>
                 <Button
                   variant="contained"
@@ -72,11 +72,11 @@ const ShoppingCartPage = observer(() => {
           </>
         )}
       </Grid>
-      <PictureDialog
+      <ImageDialog
         open={dialogPicture.id !== 0}
-        onClose={() => setDialogPicture(emptyPictureValue)}
+        onClose={() => setDialogPicture(emptyImageValue)}
         img={dialogPicture}
-        closeDialog={() => setDialogPicture(emptyPictureValue)}
+        closeDialog={() => setDialogPicture(emptyImageValue)}
       />
     </BasicLayout>
   );

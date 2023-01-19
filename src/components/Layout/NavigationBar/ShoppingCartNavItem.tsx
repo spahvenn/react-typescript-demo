@@ -32,7 +32,7 @@ const ShoppingCartNavItem = observer(() => {
             padding: "0px 4px",
           })}
         >
-          {cartStore.shoppingCartItems.length}
+          {cartStore.shoppingCartImageIds.length}
         </Typography>
       </Box>
     </>

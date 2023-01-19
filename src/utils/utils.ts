@@ -1,5 +1,5 @@
 import { useMediaQuery, useTheme } from "@mui/material";
-import { ShoppingCartItem } from "../types";
+import { Image } from "../types";
 
 export const pagePreviews = {
   spring: {
@@ -40,7 +40,7 @@ export const pagePreviews = {
   },
 };
 
-const pictureBankSeasons = {
+const imageBankSeasons = {
   spring: [
     {
       id: 1,
@@ -309,14 +309,18 @@ const pictureBankSeasons = {
   ],
 };
 
-export const pictureBank: { [key: string]: ShoppingCartItem[] } = {
-  ...pictureBankSeasons,
+export function getImageById(id: number): Image {
+  return imageBank.all.find(picture => picture.id === id) as Image
+}
+
+export const imageBank: { [key: string]: Image[] } = {
+  ...imageBankSeasons,
   ...{
     all: [
-      ...pictureBankSeasons.spring,
-      ...pictureBankSeasons.summer,
-      ...pictureBankSeasons.autumn,
-      ...pictureBankSeasons.winter,
+      ...imageBankSeasons.spring,
+      ...imageBankSeasons.summer,
+      ...imageBankSeasons.autumn,
+      ...imageBankSeasons.winter,
     ],
   },
 };
@@ -345,7 +349,7 @@ export const carouselItems: CarouselItem[] = [
   },
 ];
 
-export const emptyPictureValue: ShoppingCartItem = {
+export const emptyImageValue: Image = {
   id: 0,
   src: "",
   srcSmall: "",
@@ -367,7 +371,7 @@ function useBreakPointName() {
   }
 }
 
-export function usePictureSrc(image: ShoppingCartItem) {
+export function useImageSrc(image: Image) {
   const breakpoint = useBreakPointName();
 
   switch (breakpoint) {
@@ -381,7 +385,7 @@ export function usePictureSrc(image: ShoppingCartItem) {
 }
 
 
-export function useDialogPictureMinHeight() {
+export function useDialogImageMinHeight() {
   const breakpoint = useBreakPointName();
 
   switch (breakpoint) {
