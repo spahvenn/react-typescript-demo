@@ -3,7 +3,7 @@ import { makeAutoObservable } from "mobx";
 export default class ShoppingCartStore {
   shoppingCartImageIds: number[] = [];
   hydrated: boolean = false;
-  localStorageProps: string[] = ["shoppingCartItems"];
+  localStorageProps: string[] = ["shoppingCartImageIds"];
   constructor() {
     makeAutoObservable(this);
   }
