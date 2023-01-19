@@ -80,7 +80,7 @@ export function MobileCarouselContainer({
         {carouselItems.map((carouselItem) => {
           return (
             <Box key={carouselItem.season} height="220px">
-              <CarouselImage carouselItem={carouselItem} />
+              <CarouselImage carouselItem={carouselItem} isMobile={true} />
             </Box>
           );
         })}

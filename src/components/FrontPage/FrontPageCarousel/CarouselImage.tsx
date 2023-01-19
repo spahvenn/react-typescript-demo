@@ -4,8 +4,10 @@ import { CarouselItem } from "../../../utils/utils";
 
 export function CarouselImage({
   carouselItem,
+  isMobile = false,
 }: {
   carouselItem: CarouselItem;
+  isMobile?: boolean;
 }) {
   return (
     <Link to={"/gallery?season=" + carouselItem.season}>
@@ -18,7 +20,7 @@ export function CarouselImage({
           backgroundPosition: "center center",
         }}
         component="div"
-        image={carouselItem.src}
+        image={isMobile ? carouselItem.srcSmall : carouselItem.src}
       />
     </Link>
   );

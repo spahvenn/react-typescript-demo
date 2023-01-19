@@ -328,24 +328,29 @@ export const imageBank: { [key: string]: Image[] } = {
 export interface CarouselItem {
   season: string;
   src: string;
+  srcSmall: string;
 }
 
 export const carouselItems: CarouselItem[] = [
   {
     season: "winter",
     src: pagePreviews.winter.src,
+    srcSmall: pagePreviews.winter.srcSmall,
   },
   {
     season: "spring",
     src: pagePreviews.spring.src,
+    srcSmall: pagePreviews.spring.srcSmall,
   },
   {
     season: "summer",
     src: pagePreviews.summer.src,
+    srcSmall: pagePreviews.summer.srcSmall,
   },
   {
     season: "autumn",
     src: pagePreviews.autumn.src,
+    srcSmall: pagePreviews.autumn.srcSmall,
   },
 ];
 
