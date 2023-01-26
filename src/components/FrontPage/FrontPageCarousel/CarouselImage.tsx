@@ -19,7 +19,7 @@ export function CarouselImage({
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center center",
         }}
-        component="div"
+        component="img"
         image={isMobile ? carouselItem.srcSmall : carouselItem.src}
       />
     </Link>

@@ -3,12 +3,17 @@ import { CarouselImage } from "./CarouselImage";
 import Carousel from "react-material-ui-carousel";
 import { CallToActionButton } from "./CallToActionButton";
 import { CarouselItem } from "../../../utils/utils";
+import { CarouselNavProps } from "react-material-ui-carousel/dist/components/types";
 
 interface CarouselContainerProps {
   carouselItems: CarouselItem[];
   onChange: (now?: number, previous?: number) => void;
   currentImageIndex: number;
 }
+
+const indicatorContainerProps: CarouselNavProps = {
+  style: { zIndex: 1, marginTop: "-30px", position: "absolute" },
+};
 
 export function DesktopCarouselContainer({
   carouselItems,
@@ -19,7 +24,10 @@ export function DesktopCarouselContainer({
     <Box>
       <Grid container>
         <Grid item xs={7} sm={8} md={9}>
-          <Carousel indicators={false} onChange={onChange}>
+          <Carousel
+            onChange={onChange}
+            indicatorContainerProps={indicatorContainerProps}
+          >
             {carouselItems.map((carouselItem) => {
               return (
                 <Box key={carouselItem.season} height="400px">
@@ -76,19 +84,25 @@ export function MobileCarouselContainer({
 }: CarouselContainerProps) {
   return (
     <Box>
-      <Carousel indicators={false} onChange={onChange}>
+      <Carousel
+        onChange={onChange}
+        indicators={true}
+        sx={{ mr: -2, ml: -2 }}
+        indicatorContainerProps={indicatorContainerProps}
+      >
         {carouselItems.map((carouselItem) => {
           return (
-            <Box key={carouselItem.season} height="220px">
+            <Box key={carouselItem.season}>
               <CarouselImage carouselItem={carouselItem} isMobile={true} />
             </Box>
           );
         })}
       </Carousel>
       <Box
+        mr={-2}
+        ml={-2}
         sx={(theme) => ({
           backgroundColor: theme.palette.primary.main,
-          borderRadius: 1,
         })}
       >
         <Box padding={1.5} mt={1.5}>

@@ -14,6 +14,7 @@ function FrontPage() {
           sx={(theme) => ({
             [theme.breakpoints.only("xs")]: {
               marginTop: -1.5,
+              marginBottom: -1.5,
             },
           })}
         >
