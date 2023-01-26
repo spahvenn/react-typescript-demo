@@ -5,7 +5,7 @@ Gallery Shop Demo
 Features:
 - built with React and TypeScript with Material UI component library
 - responsive UI
-- different image size of the same image for different uses cases for faster loading
+- different image size of the same image for different uses cases for faster loading, also mobile is using lower resolution images only
 - toast messages with react-toastify
 - husky precommit hook using prettier to force unification of code style on commits and run tests
 - state management with react useState and global state with mobx
