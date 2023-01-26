@@ -10,6 +10,7 @@ Features:
 - husky precommit hook using prettier to force unification of code style on commits and run tests
 - state management with react useState and global state with mobx
 - stores specific data into localstorage (e.g. shopping cart and UI Theme) and hydrates mobx store from localstorage on browser refresh
+- component testing example using @testing-library/react, run by using "npm test"
 
 
 You can run the project by installing node 18 and running 
