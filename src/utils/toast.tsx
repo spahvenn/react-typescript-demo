@@ -1,7 +1,7 @@
 import { toast, ToastOptions } from "react-toastify";
 
 const defaultOptions = {
-  autoClose: 4000,
+  autoClose: 3000,
 };
 
 export function showSuccessMsg(msg: string, options: ToastOptions = {}) {

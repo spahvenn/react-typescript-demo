@@ -34,22 +34,21 @@ const ShoppingCartPage = observer(() => {
         {shoppingCartImageIds.length > 0 && (
           <>
             <Grid container spacing={0.5} mb={2}>
-              {shoppingCartImageIds.map((itemId) => {
-                return (
-                  <Grid key={itemId} item xs={6} sm={4} md={3}>
-                    <img
-                      style={{
-                        width: "100%",
-                        display: "block",
-                        cursor: "pointer",
-                      }}
-                      alt={"Shopping cart item"}
-                      src={getImageById(itemId).srcSmall}
-                      onClick={() => setDialogPicture(getImageById(itemId))}
-                    />
-                  </Grid>
-                );
-              })}
+              {shoppingCartImageIds.map((itemId) => (
+                <Grid key={itemId} item xs={6} sm={4} md={3}>
+                  <img
+                    style={{
+                      width: "100%",
+                      display: "block",
+                      cursor: "pointer",
+                    }}
+                    alt={"Shopping cart item"}
+                    src={getImageById(itemId).srcSmall}
+                    data-testid={`shopping-cart-image-${itemId}`}
+                    onClick={() => setDialogPicture(getImageById(itemId))}
+                  />
+                </Grid>
+              ))}
             </Grid>
             <Grid container>
               <Grid item xs={12}>

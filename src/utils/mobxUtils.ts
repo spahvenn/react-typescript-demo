@@ -26,7 +26,9 @@ export function hydrateStore(
   const json = JSON.parse(jsonString);
   Object.keys(store).forEach((property) => {
     if (json?.hasOwnProperty(property)) {
-      set(store, property, json[property]);
+      runInAction(() => {
+        set(store, property, json[property]);
+      });
     }
     setHydrated(store);
   });

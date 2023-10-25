@@ -11,8 +11,7 @@ import { useSearchParams } from "react-router-dom";
 
 export default function GalleryPage() {
   const [selectedSeason, setSelectedSeason] = useState("all");
-  const [dialogPicture, setDialogPicture] =
-    useState<Image>(emptyImageValue);
+  const [dialogPicture, setDialogPicture] = useState<Image>(emptyImageValue);
   const navigate = useNavigate();
   const location = useLocation();
   const [searchParams] = useSearchParams();
@@ -22,12 +21,9 @@ export default function GalleryPage() {
     if (urlSeason && urlSeason !== null) {
       setSelectedSeason(urlSeason);
     }
-
     const pictureId = searchParams.get("pictureId");
     if (pictureId) {
-      const picture = imageBank.all.find((pic) => {
-        return pic.id === Number(pictureId);
-      });
+      const picture = imageBank.all.find((pic) => pic.id === Number(pictureId));
       if (picture) {
         setDialogPicture(picture);
       }
@@ -55,7 +51,7 @@ export default function GalleryPage() {
       <Grid container spacing={0.5} mb={0.5}>
         {imageBank[selectedSeason].map((image) => {
           return (
-            <Grid key={image.src} item sm={6} md={4} lg={3}>
+            <Grid key={image.id} item sm={6} md={4} lg={3}>
               <Box
                 sx={{
                   overflow: "hidden",
@@ -63,6 +59,7 @@ export default function GalleryPage() {
               >
                 <CardMedia
                   component="img"
+                  data-testid={`gallery-image-${image.id}`}
                   sx={{
                     width: "100%",
                     display: "block",
