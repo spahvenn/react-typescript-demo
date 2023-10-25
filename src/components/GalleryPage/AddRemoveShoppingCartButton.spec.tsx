@@ -1,5 +1,5 @@
 import { Router } from "@remix-run/router";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { createMemoryRouter, RouterProvider } from "react-router";
 import { ToastContainer } from "react-toastify";
 import * as store from "../../mobx/RootStore";
@@ -7,7 +7,7 @@ import { routes } from "../../utils/router";
 
 window.scrollTo = jest.fn();
 
-const shoppingCartItemId = 1
+const shoppingCartItemId = 1;
 
 function createRouter() {
   return createMemoryRouter(routes, {
@@ -36,11 +36,7 @@ describe("AddRemoveShoppingCartButton", () => {
       </store.RootStoreProvider>
     );
     fireEvent.click(screen.getByText("Add to cart"));
-    await waitFor(() =>
-      expect(
-        screen.getByText("Picture added to the shopping cart")
-      ).toBeInTheDocument()
-    );
+    await screen.findByText("Picture added to the shopping cart");
   });
   it("should render remove button and show toast on click", async () => {
     const testStore = {
@@ -59,10 +55,6 @@ describe("AddRemoveShoppingCartButton", () => {
       </store.RootStoreProvider>
     );
     fireEvent.click(screen.getByText("Remove from cart"));
-    await waitFor(() =>
-      expect(
-        screen.getByText("Picture removed from the shopping cart")
-      ).toBeInTheDocument()
-    );
+    await screen.findByText("Picture removed from the shopping cart");
   });
 });
