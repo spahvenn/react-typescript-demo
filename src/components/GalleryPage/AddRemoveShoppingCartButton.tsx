@@ -19,6 +19,19 @@ const AddRemoveShoppingCartButton = observer(
     )
       ? "remove"
       : "add";
+
+    function onButtonClick(buttonType: "remove" | "add", imageId: number) {
+      buttonType === "add"
+        ? shoppingCartStore.add(imageId)
+        : shoppingCartStore.remove(imageId);
+      closeDialog();
+      showSuccessMsg(
+        buttonType === "add"
+          ? "Picture added to the shopping cart"
+          : "Picture removed from the shopping cart"
+      );
+    }
+
     return (
       <Button
         endIcon={
@@ -32,17 +45,7 @@ const AddRemoveShoppingCartButton = observer(
           margin: `${theme.spacing(0.5)} ${theme.spacing(0)}`,
         })}
         variant="contained"
-        onClick={() => {
-          buttonType === "add"
-            ? shoppingCartStore.add(image.id)
-            : shoppingCartStore.remove(image.id);
-          closeDialog();
-          showSuccessMsg(
-            buttonType === "add"
-              ? "Picture added to the shopping cart"
-              : "Picture removed from the shopping cart"
-          );
-        }}
+        onClick={() => onButtonClick(buttonType, image.id)}
       >
         {buttonType === "add" ? "Add to cart" : "Remove from cart"}
       </Button>
